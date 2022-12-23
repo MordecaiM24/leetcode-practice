@@ -1,6 +1,4 @@
 import java.util.*;
-import java.lang.*;
-
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -12,7 +10,8 @@ public class App {
     static int[] rotateArray(int[] input, int rotate){
         int len = input.length;
         int[] output = new int[len];
-        int realRotation = (len-rotate);
+        int realRotation = Math.abs((len-rotate));
+        realRotation %= len;
 
         for(int i = 0; i < len; i++){
             output[i] = input[(i+realRotation)%len];
